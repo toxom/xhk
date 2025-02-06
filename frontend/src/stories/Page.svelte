@@ -1,70 +1,200 @@
 <script lang="ts">
   import './page.css';
-  import Header from './Header.svelte';
+  import Button from './Button.svelte';
+  import { user } from '$lib/stores/store.user';
+  import { goto } from '$app/navigation';
+  import Logo1 from '../stories/assets/logo1.svg'
 
-  let user = $state<{ name: string }>();
+  let loggedInUser = $state<{ name: string } | null>(null);
+  user.subscribe((value) => (loggedInUser = value));
+
+  if (loggedInUser) {
+    goto('/dashboard');
+  }
 </script>
 
 <article>
-  <Header
-    {user}
-    onLogin={() => (user = { name: 'Jane Doe' })}
-    onLogout={() => (user = undefined)}
-    onCreateAccount={() => (user = { name: 'Jane Doe' })}
-  />
+  {#if !loggedInUser}
+    <main class="landing-page">
+      <section class="hero">
+        <div class="hero-content">
+          <div>
+            <img src={Logo1} alt="Logo" />
+          </div>
+          <h1>
+            <span class="subtitle">XHK is Driving the<br />Future of Money</span>
+          </h1>
+          <div class="cta-buttons">
+            <Button variant="primary">Create Account</Button>
+            <Button variant="outline">
+              <span class="learn-more">► Learn How XHK Works</span>
+            </Button>
+          </div>
+        </div>
+        <div class="hero-image">
+          <!-- Currency icons network visualization -->
+        </div>
+      </section>
 
-  <section class="storybook-page">
-    <h2>Pages in Storybook</h2>
-    <p>
-      We recommend building UIs with a
-      <a
-        href="https://blog.hichroma.com/component-driven-development-ce1109d56c8e"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <strong>component-driven</strong>
-      </a>
-      process starting with atomic components and ending with pages.
-    </p>
-    <p>
-      Render pages with mock data. This makes it easy to build and review page states without
-      needing to navigate to them in your app. Here are some handy patterns for managing page data
-      in Storybook:
-    </p>
-    <ul>
-      <li>
-        Use a higher-level connected component. Storybook helps you compose such data from the
-        "args" of child component stories
-      </li>
-      <li>
-        Assemble data in the page component from your services. You can mock these services out
-        using Storybook.
-      </li>
-    </ul>
-    <p>
-      Get a guided tutorial on component-driven development at
-      <a href="https://storybook.js.org/tutorials/" target="_blank" rel="noopener noreferrer">
-        Storybook tutorials
-      </a>
-      . Read more in the
-      <a href="https://storybook.js.org/docs" target="_blank" rel="noopener noreferrer">docs</a>
-      .
-    </p>
-    <div class="tip-wrapper">
-      <span class="tip">Tip</span>
-      Adjust the width of the canvas with the
-      <svg width="10" height="10" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
-        <g fill="none" fill-rule="evenodd">
-          <path
-            d="M1.5 5.2h4.8c.3 0 .5.2.5.4v5.1c-.1.2-.3.3-.4.3H1.4a.5.5 0
-            01-.5-.4V5.7c0-.3.2-.5.5-.5zm0-2.1h6.9c.3 0 .5.2.5.4v7a.5.5 0 01-1 0V4H1.5a.5.5 0
-            010-1zm0-2.1h9c.3 0 .5.2.5.4v9.1a.5.5 0 01-1 0V2H1.5a.5.5 0 010-1zm4.3 5.2H2V10h3.8V6.2z"
-            id="a"
-            fill="#999"
-          />
-        </g>
-      </svg>
-      Viewports addon in the toolbar
-    </div>
-  </section>
+      <section class="info">
+        <div class="logo-container">
+          <div class="logo">
+            <span class="xhk-symbol">XHK</span>
+          </div>
+        </div>
+        <div class="info-content">
+          <h2>Placeholder</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <Button variant="text">Learn How XHK Works</Button>
+        </div>
+      </section>
+      <section class="info2">
+        <div class="info-content">
+          <h2>Placeholder</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <Button variant="text">Learn How XHK Works</Button>
+        </div>
+        <div class="logo-container">
+          <div class="logo">
+            <span class="xhk-symbol">XHK</span>
+          </div>
+        </div>
+      </section>
+      <section class="info">
+        <div class="logo-container">
+          <div class="logo">
+            <span class="xhk-symbol">XHK</span>
+          </div>
+        </div>
+        <div class="info-content">
+          <h2>Placeholder</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <Button variant="text">Learn How XHK Works</Button>
+        </div>
+
+      </section>
+      <section class="info2">
+        <div class="info-content">
+          <h2>Placeholder</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <Button variant="text">Learn How XHK Works</Button>
+        </div>
+        <div class="logo-container">
+          <div class="logo">
+            <span class="xhk-symbol">XHK</span>
+          </div>
+        </div>
+      </section>
+    </main>
+  {/if}
 </article>
+
+<style lang="scss">
+
+
+  .landing-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: linear-gradient(to bottom, #f7f8f9, #ffffff);
+
+  }
+
+  .hero {
+    display: flex;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    padding: 4rem 0;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-content {
+    h1 {
+      font-size: 6.5rem;
+      line-height: 1.1;
+      
+      .subtitle {
+        display: block;
+        font-size: 5.5rem;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .learn-more {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .info, .info2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    padding: 4rem 2rem;
+    background: linear-gradient(to left, #e1edf5, #ffffff);
+    border-radius: 2rem;
+  }
+
+  .info2 {
+		background: linear-gradient(to right, #e1edf5, #ffffff);
+
+  }
+
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .logo {
+    width: 300px;
+    height: 300px;
+    background: rgb(0, 163, 163);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .xhk-symbol {
+      color: white;
+      font-size: 4rem;
+      font-weight: bold;
+    }
+  }
+
+  .info-content {
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero, .info {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+</style>

@@ -1,0 +1,25 @@
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+            <!-- Background rounded square -->
+            <rect x="10" y="0" width="80" height="80" rx="20" fill="#FFF"/>
+            
+            <!-- X -->
+            <path d="M25 25 L40 40 L25 55 M40 25 L25 40 L40 55" 
+                  stroke="#555AB9" 
+                  stroke-width="6" 
+                  stroke-linecap="round"
+                  fill="none"/>
+            
+            <!-- H -->
+            <path d="M45 25 L45 55 M45 40 L60 40 M60 25 L60 55" 
+                  stroke="#91BAF8" 
+                  stroke-width="6" 
+                  stroke-linecap="round"
+                  fill="none"/>
+            
+            <!-- K -->
+            <path d="M65 25 L65 55 M65 40 L80 25 M65 40 L80 55" 
+                  stroke="#555AB9" 
+                  stroke-width="6" 
+                  stroke-linecap="round"
+                  fill="none"/>
+          </svg>

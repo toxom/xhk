@@ -1,19 +1,28 @@
 .storybook-page {
   margin: 0 auto;
+  position: fixed;
+  top: 5rem;
+  bottom: 0;
+  left: 3rem;
+  right: 0;
   padding: 48px 20px;
   max-width: 600px;
+  background-color: lightblue;
   color: #333;
   font-size: 14px;
   line-height: 24px;
+  z-index: -1;
   font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .storybook-page h2 {
   display: inline-block;
   vertical-align: top;
+  text-align: center;
+  width: 100%;
   margin: 0 0 4px;
   font-weight: 700;
-  font-size: 32px;
+  font-size: 4rem;
   line-height: 1;
 }
 
@@ -32,6 +41,14 @@
 
 .storybook-page li {
   margin-bottom: 8px;
+}
+
+.storybook-page .button-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
 }
 
 .storybook-page .tip {

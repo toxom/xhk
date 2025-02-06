@@ -1,20 +1,12 @@
 <script lang="ts">
   import './button.css';
-
-  interface Props {
-    /** Is this the principal call to action on the page? */
-    primary?: boolean;
-    /** What background color to use */
-    backgroundColor?: string;
-    /** How large should the button be? */
-    size?: 'small' | 'medium' | 'large';
-    /** Button contents */
-    label: string;
-    /** The onclick event handler */
-    onClick?: () => void;
-  }
+  import type { ButtonProps } from '../types/types.ui';
   
-  const { primary = false, backgroundColor, size = 'medium', label, onClick }: Props = $props();
+  export let primary = false;
+  export let backgroundColor: string | undefined = undefined;
+  export let size: 'small' | 'medium' | 'large' = 'medium';
+  export let label: string;
+  export let onClick: (() => void) | undefined = undefined;
 </script>
 
 <button
